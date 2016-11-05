@@ -248,11 +248,13 @@ public class MainActivity extends Activity {
     }
 
     private void print(byte[] cmd) {
-        try {
-            outputStream.write(cmd);
-            outputStream.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(outputStream != null) {
+            try {
+                outputStream.write(cmd);
+                outputStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
